@@ -52,6 +52,9 @@ ln -nsf /usr/bin/nodejs /usr/bin/node
 # Install sass
 gem install sass
 
+# Install grunt
+npm install -g grunt-cli
+
 # Create dev Database
 echo "CREATE DATABASE packagefactory_knowledgebase_dev collate utf8_unicode_ci;" | mysql -u root -proot
 
