@@ -61,6 +61,11 @@ echo "CREATE DATABASE packagefactory_knowledgebase_dev collate utf8_unicode_ci;"
 # Create Symlink for Webdirectory
 ln -s /home/vagrant/project/Web /var/www/html
 
+cp /home/vagrant/project/Vagrant/vhost.conf /etc/apache2/sites-available/000-default.conf
+
+# enable mod_rewrite
+a2enmod rewrite
+
 # Restart Services
 service apache2 restart
 service mysql restart

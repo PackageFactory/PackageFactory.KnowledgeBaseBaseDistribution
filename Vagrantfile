@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.provision :shell, :path => "provision.sh"
+  config.vm.provision :shell, :path => "Vagrant/provision.sh"
   config.vm.network "private_network", ip: "192.168.50.4"
   config.ssh.forward_agent = true
   
