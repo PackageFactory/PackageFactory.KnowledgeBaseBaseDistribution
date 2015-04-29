@@ -17,4 +17,7 @@ Configuration/Settings.yaml.example
 Readme.rst
 Upgrading.rst
 
+Readme.txt
+Upgrading.txt
+
 /.vagrant/
