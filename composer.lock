@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b6dd7dcd24097dcb6ca309c8159bb2d9",
+    "hash": "4e98a81b5035abff7876239484fc46df",
     "packages": [
         {
             "name": "composer/installers",
@@ -576,12 +576,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "39d6223d919baa35883270199c7e935acc440257"
+                "reference": "98092aa3d6d5e5401796d69895d1caf49ec8971f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/39d6223d919baa35883270199c7e935acc440257",
-                "reference": "39d6223d919baa35883270199c7e935acc440257",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/98092aa3d6d5e5401796d69895d1caf49ec8971f",
+                "reference": "98092aa3d6d5e5401796d69895d1caf49ec8971f",
                 "shasum": ""
             },
             "require": {
@@ -626,7 +626,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-04-22 09:24:33"
+            "time": "2015-04-27 06:15:55"
         },
         {
             "name": "doctrine/orm",
@@ -707,12 +707,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PackageFactory/PackageFactory.KnowledgeBase.git",
-                "reference": "a983c9e9ab4fca99941fedafd5c13237eff309f7"
+                "reference": "bf8c812a81950ef68f69b0ad34d91305e7894ef0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PackageFactory/PackageFactory.KnowledgeBase/zipball/a983c9e9ab4fca99941fedafd5c13237eff309f7",
-                "reference": "a983c9e9ab4fca99941fedafd5c13237eff309f7",
+                "url": "https://api.github.com/repos/PackageFactory/PackageFactory.KnowledgeBase/zipball/bf8c812a81950ef68f69b0ad34d91305e7894ef0",
+                "reference": "bf8c812a81950ef68f69b0ad34d91305e7894ef0",
                 "shasum": ""
             },
             "require": {
@@ -726,7 +726,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Add description here",
-            "time": "2015-04-25 19:05:33"
+            "time": "2015-04-28 18:58:12"
         },
         {
             "name": "symfony/console",
@@ -888,14 +888,14 @@
         },
         {
             "name": "typo3/eel",
-            "version": "dev-master",
+            "version": "3.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.typo3.org/Packages/TYPO3.Eel.git",
-                "reference": "4d067ccf008fbc2ca667b60730676b1fe04eba9c"
+                "reference": "8b56f8a7fd4c575fd73ce579c220e882ad48a3bb"
             },
             "require": {
-                "typo3/flow": "*"
+                "typo3/flow": "3.0.0-beta1"
             },
             "type": "typo3-flow-framework",
             "autoload": {
@@ -908,15 +908,15 @@
                 "LGPL-3.0+"
             ],
             "description": "The Embedded Expression Language (Eel) is a building block for creating Domain Specific Languages",
-            "time": "2015-02-26 09:18:23"
+            "time": "2015-02-27 08:01:10"
         },
         {
             "name": "typo3/flow",
-            "version": "dev-master",
+            "version": "3.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.typo3.org/Packages/TYPO3.Flow.git",
-                "reference": "e3a893e0dd6bf08926a8e18f3696f5b137a22df0"
+                "reference": "8aad8644c644cafde2f6160d30a3b7ff96b6ae4b"
             },
             "require": {
                 "composer/installers": "~1.0.2",
@@ -931,8 +931,8 @@
                 "symfony/console": "2.*",
                 "symfony/dom-crawler": "2.5.*",
                 "symfony/yaml": "2.5.*",
-                "typo3/eel": "*",
-                "typo3/fluid": "*"
+                "typo3/eel": "3.0.0-beta1",
+                "typo3/fluid": "3.0.0-beta1"
             },
             "suggest": {
                 "doctrine/data-fixtures": "To manage and execute the loading of data fixtures for the Doctrine ORM or ODM",
@@ -951,18 +951,18 @@
             ],
             "description": "TYPO3 Flow Application Framework",
             "homepage": "http://flow.typo3.org",
-            "time": "2015-04-25 06:17:31"
+            "time": "2015-02-27 08:01:10"
         },
         {
             "name": "typo3/fluid",
-            "version": "dev-master",
+            "version": "3.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.typo3.org/Packages/TYPO3.Fluid.git",
-                "reference": "defa41b24cea5bd800dc50facec3d9dedfc5a86d"
+                "reference": "7674dfe544cf7d00dd12a8def82256507fde2cb3"
             },
             "require": {
-                "typo3/flow": "*"
+                "typo3/flow": "3.0.0-beta1"
             },
             "type": "typo3-flow-framework",
             "autoload": {
@@ -975,31 +975,32 @@
                 "LGPL-3.0+"
             ],
             "description": "Next-Generation Templating Framework for TYPO3 Flow and TYPO3 Neos, also backported to TYPO3 CMS",
-            "time": "2015-04-10 09:11:59"
+            "time": "2015-02-27 08:01:10"
         },
         {
-            "name": "typo3/welcome",
-            "version": "dev-master",
+            "name": "typo3/typo3cr",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
-                "url": "https://git.typo3.org/Packages/TYPO3.Welcome.git",
-                "reference": "4b334169eaf9038fe26b25a37ceb8d885584224b"
+                "url": "https://git.typo3.org/Packages/TYPO3.TYPO3CR.git",
+                "reference": "d8b781cd45277a912d6a4ef9f28ba665b2a7cc3d"
             },
             "require": {
+                "typo3/eel": "*",
                 "typo3/flow": "*"
             },
-            "type": "typo3-flow-framework",
+            "type": "typo3-flow-package",
             "autoload": {
                 "psr-0": {
-                    "TYPO3\\Welcome": "Classes"
+                    "TYPO3\\TYPO3CR": "Classes"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL-3.0+"
+                "GPL-3.0+"
             ],
-            "description": "This package provides a start screen for the TYPO3 Flow distribution with links to online resources.",
-            "time": "2015-02-25 10:35:57"
+            "description": "Content repository based on TYPO3 Flow, specifically made for TYPO3 Neos.",
+            "time": "2015-04-17 09:51:24"
         }
     ],
     "packages-dev": [
@@ -1146,16 +1147,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5"
+                "reference": "3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5",
-                "reference": "8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373",
+                "reference": "3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373",
                 "shasum": ""
             },
             "require": {
@@ -1202,7 +1203,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-03-27 19:31:25"
+            "time": "2015-04-27 22:15:08"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1952,7 +1953,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.typo3.org/Flow/BuildEssentials.git",
-                "reference": "9ff70043ff6fa42b755ef2e8be3a9922201ec635"
+                "reference": "b4baf61f0e3ee881e2bef5130238061609dc9a28"
             },
             "require": {
                 "composer/installers": "~1.0.2"
@@ -1966,7 +1967,7 @@
                 "LGPL-3.0+"
             ],
             "description": "TYPO3 Flow Build Toolchain Essentials",
-            "time": "2015-04-15 07:28:01"
+            "time": "2015-04-28 15:44:50"
         },
         {
             "name": "typo3/kickstart",
@@ -1996,10 +1997,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "typo3/flow": 20,
-        "typo3/welcome": 20,
-        "typo3/fluid": 20,
-        "typo3/eel": 20,
+        "typo3/flow": 10,
+        "typo3/fluid": 10,
+        "typo3/eel": 10,
         "packagefactory/knowledgebase": 20,
         "doctrine/migrations": 20,
         "typo3/kickstart": 20,
