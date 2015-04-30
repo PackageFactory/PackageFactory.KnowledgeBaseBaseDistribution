@@ -2,7 +2,19 @@
 
 php_config_file="/etc/php5/apache2/php.ini"
 xdebug_config_file="/etc/php5/mods-available/xdebug.ini"
-mysql_config_file="/etc/mysql/my.cnf"
+PG_CONF="/etc/postgresql/$PG_VERSION/main/postgresql.conf"
+PG_HBA="/etc/postgresql/$PG_VERSION/main/pg_hba.conf"
+PG_DIR="/var/lib/postgresql/$PG_VERSION/main"
+
+# Edit the following to change the name of the database user that will be created:
+APP_DB_USER=vagrant
+APP_DB_PASS=vagrant
+
+# Edit the following to change the name of the database that is created (defaults to the user name)
+APP_DB_NAME=packagefactory_knowledgebase_dev
+
+# Edit the following to change the version of PostgreSQL that is installed
+PG_VERSION=9.3
 
 # Fix message "stdin: is not a tty"s
 sed -i 's/^mesg n$/tty -s \&\& mesg n/g' /root/.profile
@@ -20,23 +32,38 @@ apt-get -y install build-essential binutils-doc git
 
 # Install Apache
 apt-get -y install apache2
-apt-get -y install php5 php5-curl php5-mysql php5-sqlite php5-xdebug php5-gd
+apt-get -y install php5 php5-curl php5-pgsql php5-sqlite php5-xdebug php5-gd
 
 sed -i "s/display_startup_errors = Off/display_startup_errors = On/g" ${php_config_file}
 sed -i "s/display_errors = Off/display_errors = On/g" ${php_1_file}
 echo "xdebug.remote_enable=On" >> ${xdebug_config_file}
 echo 'xdebug.remote_connect_back=On' >> ${xdebug_config_file}
 
-# Install MySQL
-echo "mysql-server mysql-server/root_password password root" | sudo debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password root" | sudo debconf-set-selections
-apt-get -y install mysql-client mysql-server
+# Install Postgresql
+apt-get -y install "postgresql-$PG_VERSION" "postgresql-contrib-$PG_VERSION"
 
-sed -i "s/bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" ${mysql_config_file}
+# Append to pg_hba.conf to add password auth:
+echo "host    all             all             all                     md5" >> "$PG_HBA"
 
-# Allow root access from any host
-echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION" | mysql -u root --password=root
-echo "GRANT PROXY ON ''@'' TO 'root'@'%' WITH GRANT OPTION" | mysql -u root --password=root
+# Explicitly set default client_encoding
+echo "client_encoding = utf8" >> "$PG_CONF"
+
+# Restart so that all new config is loaded:
+service postgresql restart
+
+# Create a database User
+cat << EOF | su - postgres -c psql
+  CREATE ROLE $APP_DB_USER WITH LOGIN PASSWORD '$APP_DB_PASS'
+EOF
+
+# Create the database
+cat << EOF | su - postgres -c psql
+CREATE DATABASE $APP_DB_NAME WITH OWNER=$APP_DB_USER
+  LC_COLLATE='en_US.utf8'
+  LC_CTYPE='en_US.utf8'
+  ENCODING='UTF8'
+  TEMPLATE=template0;
+EOF
 
 # Install mailcatcher
 apt-get -y install ruby1.9.1-dev libsqlite3-dev
@@ -55,12 +82,10 @@ gem install sass
 # Install grunt
 npm install -g grunt-cli
 
-# Create dev Database
-echo "CREATE DATABASE packagefactory_knowledgebase_dev collate utf8_unicode_ci;" | mysql -u root -proot
-
 # Create Symlink for Webdirectory
 ln -s /home/vagrant/project/Web /var/www/html
 
+# copy vhost
 cp /home/vagrant/project/Vagrant/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 # enable mod_rewrite
@@ -68,4 +93,3 @@ a2enmod rewrite
 
 # Restart Services
 service apache2 restart
-service mysql restart
