@@ -7,10 +7,11 @@
         "bin-dir": "bin"
     },
     "require": {
-        "typo3/flow": "3.0.0-beta1",
-        "typo3/fluid": "3.0.0-beta1",
-        "typo3/eel": "3.0.0-beta1",
-        "typo3/typo3cr": "2.0.x-dev",
+        "typo3/flow": "3.0.*",
+        "typo3/fluid": "3.0.*",
+        "typo3/eel": "3.0.*",
+        "typo3/typo3cr": "2.0.*",
+        "typo3/typoscript": "2.0.*",
         "packagefactory/knowledgebase": "dev-master",
         "doctrine/migrations": "@dev"
     },
